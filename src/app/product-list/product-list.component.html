@@ -1,0 +1,48 @@
+<div class="container-filter">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Filter by</mat-label>
+        <input  matInput placeholder="Ex. Gamepad" [(ngModel)]="listFilter">
+      </mat-form-field>
+
+      <table mat-table [dataSource]="filteredProducts" class="mat-elevation-z8 table-product">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container class="table-position" matColumnDef="image">
+          <th mat-header-cell *matHeaderCellDef>
+              <button (click)="showImageFunc()" mat-raised-button color="primary">ShowImage</button>  
+            </th>
+          <td mat-cell *matCellDef="let element"><img *ngIf="showImage==true" src="{{element.imageUrl}}" alt=""> </td>
+        </ng-container>
+
+        <ng-container class="table-position" matColumnDef="productName">
+            <th mat-header-cell *matHeaderCellDef> Product </th>
+            <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+          </ng-container>
+
+          <ng-container class="table-position" matColumnDef="productCode">
+            <th mat-header-cell *matHeaderCellDef> Code </th>
+            <td mat-cell *matCellDef="let element"> {{element.productCode}} </td>
+          </ng-container>
+
+          <ng-container class="table-position" matColumnDef="releaseDate">
+            <th mat-header-cell *matHeaderCellDef> Available </th>
+            <td mat-cell *matCellDef="let element"> {{element.releaseDate}} </td>
+          </ng-container>
+
+          <ng-container class="table-position" matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef> Price </th>
+            <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+          </ng-container>
+
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+</div>
+
+

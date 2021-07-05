@@ -1,0 +1,11 @@
+img {
+    width: 50px;
+    text-align: center;
+}
+
+.mat-column-productName, .mat-column-productCode, .mat-column-releaseDate, .mat-column-price, .mat-column-image{
+    width: 250px;
+    text-align: center;
+}
+
+
